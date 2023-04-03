@@ -137,32 +137,11 @@ INSERT INTO materia_professor (idturma, idprofessor, idmateria) VALUES
     (2, 14, 7),
     (2, 16, 8);
 
-
-select t.nome as 'Turma', p.nome as 'Professor(a)', p.valor_hora_aula , m.nome as 'Materia' from turma t
-join materia_professor mp on t.idturma = mp.idturma
-join professor p on mp.idprofessor = p.idprofessor
-join materia m on m.idmateria = mp.idmateria;
-
-SELECT count(ra) from aluno;
-select count(idprofessor) from professor;
-select count(idmateria) from materia;
-
+/*
 delete from aluno where ra > 80;
 delete from professor where idprofessor > 16;
 delete from materia where idmateria > 8;
-
-select * from responsavel_financeiro;
 delete from responsavel_financeiro where idresponsavel_financeiro = 2;
-
-select * from responsavel_pedagogico;
-delete from responsavel_pedagogico where idresponsavel_pedagogico = 2;
-
-select * from turma;
 delete from turma where idturma > 2;
-
-select count(idturma) from materia_professor;
-
-SELECT count(idprofessor) as 'Número de professores', t.nome as 'Turma' from materia_professor mp
-inner join turma t 
-on mp.idturma = t.idturma
-where mp.idturma = 1;
+delete from responsavel_pedagogico where idresponsavel_pedagogico = 2;
+*/
