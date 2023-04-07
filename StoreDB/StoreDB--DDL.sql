@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS product (
 CREATE TABLE IF NOT EXISTS sale ( 
     id BIGINT PRIMARY KEY AUTO_INCREMENT,  
     sale_date DATE NOT NULL,
-    customerid_FK BIGINT,
+    customerid_FK BIGINT NOT NULL,
     FOREIGN KEY (customerid_FK) REFERENCES customer(id)
 ); 
 
