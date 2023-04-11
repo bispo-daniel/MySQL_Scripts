@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS postsdb;
 USE postsdb;
 
 CREATE TABLE IF NOT EXISTS user (
-    id int auto_increment primary key PRIMARY KEY,
+    id int auto_increment primary key,
     username varchar(100) not null unique,
     password varchar(100) not null
 );
@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS user (
 
 CREATE TABLE IF NOT EXISTS post (
     id int auto_increment primary key,
+    posted datetime default current_timestamp,
     title varchar(100) not null,
     content text not null,
     fk_user_id int not null,
