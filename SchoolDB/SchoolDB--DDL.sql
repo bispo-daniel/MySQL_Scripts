@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS aluno (
  cpf INT NOT NULL,  
  nascimento DATE NOT NULL,  
  endereco VARCHAR(100) NOT NULL,  
- telefone INT NOT NULL,  
+ telefone BIGINT NOT NULL,  
  email VARCHAR(100) NOT NULL,  
  fk_id_turma INT UNSIGNED NOT NULL,
  FOREIGN KEY (fk_id_turma) REFERENCES turma(id_turma)
@@ -40,17 +40,17 @@ CREATE TABLE IF NOT EXISTS professor (
  valor_hora_aula INT NOT NULL,  
  nascimento DATE NOT NULL,  
  endereco VARCHAR(100) NOT NULL,  
- telefone INT NOT NULL,  
+ telefone BIGINT NOT NULL,  
  email VARCHAR(100) NOT NULL  
 ); 
 
 CREATE TABLE IF NOT EXISTS materia_professor (  
- id_turma INT UNSIGNED NOT NULL,  
- id_professor INT UNSIGNED NOT NULL,  
- id_materia INT UNSIGNED NOT NULL,
- CONSTRAINT id_materia_professor PRIMARY KEY (id_turma, id_professor, id_materia)
+ fk_id_turma INT UNSIGNED NOT NULL,  
+ fk_id_professor INT UNSIGNED NOT NULL,  
+ fk_id_materia INT UNSIGNED NOT NULL,
+ CONSTRAINT id_materia_professor PRIMARY KEY (fk_id_turma, fk_id_professor, fk_id_materia)
 ); 
 
-ALTER TABLE materia_professor ADD FOREIGN KEY (id_turma) REFERENCES turma (id_turma);
-ALTER TABLE materia_professor ADD FOREIGN KEY (id_professor) REFERENCES professor (id_professor);
-ALTER TABLE materia_professor ADD FOREIGN KEY (id_materia) REFERENCES materia (id_materia);
+ALTER TABLE materia_professor ADD FOREIGN KEY (fk_id_turma) REFERENCES turma (id_turma);
+ALTER TABLE materia_professor ADD FOREIGN KEY (fk_id_professor) REFERENCES professor (id_professor);
+ALTER TABLE materia_professor ADD FOREIGN KEY (fk_id_materia) REFERENCES materia (id_materia);

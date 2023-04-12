@@ -1,11 +1,11 @@
 select t.nome as 'Turma', p.nome as 'Professor(a)', p.valor_hora_aula , m.nome as 'Materia' from turma t
-join materia_professor mp on t.idturma = mp.idturma
-join professor p on mp.idprofessor = p.idprofessor
-join materia m on m.idmateria = mp.idmateria
-where mp.idturma = 2
+join materia_professor mp on t.id_turma = mp.fk_id_turma
+join professor p on mp.fk_id_professor = p.id_professor
+join materia m on m.id_materia = mp.fk_id_materia
+where mp.fk_id_turma = 2
 order by p.valor_hora_aula desc;
 
-select idprofessor, nome, valor_hora_aula from professor
+select id_professor, nome, valor_hora_aula from professor
 order by valor_hora_aula desc
 limit 3;
 
@@ -13,19 +13,15 @@ select * from professor where nascimento < '1970-01-01';
 
 select avg(valor_hora_aula) as 'Media Valor hora/aula' from professor;
 
-SELECT count(ra) from aluno;
-select count(idprofessor) from professor;
-select count(idmateria) from materia;
-
-select * from responsavel_financeiro;
-
-select * from responsavel_pedagogico;
+SELECT count(RA) from aluno;
+select count(id_professor) from professor;
+select count(id_materia) from materia;
 
 select * from turma;
 
-select count(idturma) from materia_professor;
+select count(fk_id_turma) from materia_professor;
 
-SELECT count(idprofessor) as 'Número de professores', t.nome as 'Turma' from materia_professor mp
+SELECT count(fk_id_professor) as 'Número de professores', t.nome as 'Turma' from materia_professor mp
 inner join turma t 
-on mp.idturma = t.idturma
-where mp.idturma = 1;
+on mp.fk_id_turma = t.id_turma
+where mp.fk_id_turma = 1;
