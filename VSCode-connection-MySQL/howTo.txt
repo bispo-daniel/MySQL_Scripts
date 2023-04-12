@@ -1,0 +1,16 @@
+You should created an user through the workbench:
+
+    CREATE USER 'your-username' IDENTIFIED WITH mysql_native_password BY 'your-password';
+
+Alter his privileges:
+
+    GRANT ALL ON *.* TO 'your-username';
+
+Then connect to workbench using this user...
+    The default hostname of the database is localhost
+    The MySQL user is your-username
+    His password your-password
+    The default port number is 3306
+
+Define Server with same values
+Choose database
