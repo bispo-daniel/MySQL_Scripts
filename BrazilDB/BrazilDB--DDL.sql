@@ -6,23 +6,21 @@ USE brasil;
 
 /*Creating the table estado DDL*/ 
 CREATE TABLE IF NOT EXISTS estado (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(45) NOT NULL,
     sigla VARCHAR(2) NOT NULL,
     regiao ENUM('Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul') NOT NULL,
     populacao INT NOT NULL,
-    PRIMARY KEY (id),
     UNIQUE KEY (nome),
     UNIQUE KEY (sigla)   
 );
 
 /*Creating the table cidade DDL*/ 
 CREATE TABLE IF NOT EXISTS cidade (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    estado_id INT UNSIGNED NOT NULL,
     populacao INT NOT NULL,
-    PRIMARY KEY(id),
+    estado_id INT UNSIGNED NOT NULL,
     FOREIGN KEY(estado_id) REFERENCES estado(id)
 );
 
