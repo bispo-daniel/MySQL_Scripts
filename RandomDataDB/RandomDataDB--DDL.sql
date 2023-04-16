@@ -1,20 +1,27 @@
 CREATE DATABASE IF NOT EXISTS randomdatadb;
 use randomdatadb;
 
-CREATE TABLE IF NOT EXISTS randomData (
-  id int auto_increment primary key,
-  randomNumber bigint UNSIGNED not null,
-  randomString longtext not null,
-  randomDate date not null
-);
+select * from randomClient;
 
 /*
-  randomNumber limits: 0 - 18,446,744,073,709,551,615
-  randomString limits: 4,294,967,295 characters
-  randomDate limits: '1000-01-01' to '9999-12-31'
+10:39:45
+10:40:39
+--54s--
+
+10:51:11
+10:52:09
+--58s--
 */
 
-insert into randomData (randomNumber, randomString, randomDate) 
-values (0, 'o', '1000-01-01');
+CREATE TABLE IF NOT EXISTS randomClient (
+  id bigint auto_increment primary key,
+  randomName varchar(100) not null,
+  randomBalance bigint UNSIGNED not null,
+  randomDate date not null,
+  randomBank varchar(100) not null,
+  insertDateTime datetime DEFAULT NOW()
+);
 
-select * from randomData;
+insert into randomClient (randomName, randomBalance, randomDate, randomBank) 
+values ('a', 1, '1970-1-6', 'OKOK');
+
