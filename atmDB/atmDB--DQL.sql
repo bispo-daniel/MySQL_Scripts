@@ -3,7 +3,7 @@ USE atmDB;
 select * from customer;
 select * from account;
 
-select a.account_number, a.pass,
+select a.id, a.pass,
 a.balance,
 c.name
 from account a 
