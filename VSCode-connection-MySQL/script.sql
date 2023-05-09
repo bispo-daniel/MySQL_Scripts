@@ -4,4 +4,4 @@ SHOW GRANTS FOR 'X';
 
 GRANT ALL 
 ON *.* 
-TO 'bispo';
+TO 'X';
